@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7f1" />
+    <title>HarvestIQ — Market insights for farmers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#overview" aria-label="HarvestIQ home">
+          <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27V15m0 5c-7 0-11-4-11-11 7 0 11 4 11 11Zm0-4c0-7 4-11 11-11 0 7-4 11-11 11Z"/></svg></span>
+          <span>harvest<span class="brand-light">iq</span></span>
+        </a>
+        <div class="workspace-label">FARMER WORKSPACE</div>
+        <nav class="nav-list" aria-label="Main navigation">
+          <a class="nav-item active" href="#overview"><span class="nav-icon">⌂</span>Overview</a>
+          <a class="nav-item" href="#market-analysis"><span class="nav-icon">▥</span>Market analysis</a>
+          <a class="nav-item" href="#recommendations"><span class="nav-icon">✳</span>Sell smarter</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="help-card"><span class="help-icon">✦</span><strong>Make every harvest count</strong><p>Compare local prices and plan your next market trip.</p><a href="#recommendations">Explore insights <span>↗</span></a></div>
+          <div class="profile"><div class="avatar">RK</div><div><strong>Ravi Kumar</strong><span>Smallholder farmer</span></div><button class="more-button" aria-label="More profile options">···</button></div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="overview">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Workspace</span><b>/</b><strong>Overview</strong></div>
+          <div class="top-actions"><span class="location-pill"><span>⌖</span> Thane, Maharashtra <i>⌄</i></span><button class="icon-button" aria-label="Notifications">♧<i></i></button><div class="avatar top-avatar">RK</div></div>
+        </header>
+
+        <section class="welcome-row">
+          <div><div class="eyebrow"><span class="live-dot"></span> YOUR MARKET SNAPSHOT</div><h1>Good morning, Ravi <span class="wave">☀</span></h1><p>Here’s what’s happening across your nearby mandis.</p></div>
+          <div class="date-tag"><span>◷</span><span><small>REPORT DATE</small><strong id="report-date">11 Oct 2026</strong></span></div>
+        </section>
+
+        <section class="source-strip" id="source-strip"><span class="source-dot"></span><span id="source-copy">Showing figures from your sample workbook</span><button id="demo-toggle" class="text-action">Try illustrative vegetable demo <span>→</span></button><label class="upload-button" for="file-input">↑ <span>Import data</span></label><input id="file-input" type="file" accept=".xlsx,.xls,.csv" hidden /></section>
+
+        <section class="kpi-grid" aria-label="Market summary">
+          <article class="kpi-card"><div class="kpi-heading"><span>MARKETS TRACKED</span><span class="kpi-icon green">⌖</span></div><div class="kpi-value" id="market-count">3</div><div class="kpi-note"><span class="note-dot"></span><span id="market-note">Across Thane district</span></div></article>
+          <article class="kpi-card"><div class="kpi-heading"><span>COMMODITIES LISTED</span><span class="kpi-icon yellow">▤</span></div><div class="kpi-value" id="commodity-count">5</div><div class="kpi-note"><span class="note-dot yellow-dot"></span><span id="commodity-note">Across 3 crop groups</span></div></article>
+          <article class="kpi-card"><div class="kpi-heading"><span>AVG. LATEST PRICE</span><span class="kpi-icon blue">₹</span></div><div class="kpi-value" id="average-price">₹ 8,300<span class="unit">/qtl</span></div><div class="kpi-note"><span class="note-dot blue-dot"></span><span>For available market quotes</span></div></article>
+          <article class="kpi-card"><div class="kpi-heading"><span>LATEST REPORTED ARRIVAL</span><span class="kpi-icon orange">↗</span></div><div class="kpi-value" id="arrival-total">1.5<span class="unit"> MT</span></div><div class="kpi-note"><span class="note-dot orange-dot"></span><span id="arrival-note">Most recent quote per commodity</span></div></article>
+        </section>
+
+        <section class="insight-grid" id="market-analysis">
+          <article class="panel trend-panel">
+            <div class="panel-header"><div><div class="section-kicker">PRICE MOVEMENT</div><h2>Price trend</h2><p class="panel-subtitle">Daily modal price for your selected crop</p></div><label class="select-wrap"><span class="sr-only">Filter chart by market</span><select id="market-filter"><option value="all">All markets</option></select><span>⌄</span></label></div>
+            <div id="chart-legend" class="chart-legend"></div>
+            <div id="trend-chart" class="chart-area" role="img" aria-label="Market price comparison chart"></div>
+            <div class="chart-foot"><span>Prices in ₹ per quintal</span><span id="trend-caption">Comparing available quotes with MSP</span></div>
+          </article>
+
+          <article class="panel arrivals-panel">
+            <div class="panel-header"><div><div class="section-kicker">WHAT’S MOVING</div><h2>Arrival mix</h2><p class="panel-subtitle">Reported quantity by crop group</p></div><button class="round-action" aria-label="Arrival chart details">···</button></div>
+            <div class="donut-wrap"><div id="arrival-chart" class="donut-chart" role="img" aria-label="Arrival mix pie chart"></div><div class="donut-center"><strong id="donut-total">1.5</strong><span>TONNES</span></div></div>
+            <div id="arrival-legend" class="arrival-legend"></div>
+            <div class="chart-foot"><span>Only reported arrivals are included</span></div>
+          </article>
+        </section>
+
+        <section class="panel recommendation-panel" id="recommendations">
+          <div class="panel-header recommendation-heading"><div><div class="section-kicker">YOUR NEXT MOVE</div><h2>Where should you sell?</h2><p class="panel-subtitle">Compare the latest observed price for your crop across nearby markets.</p></div><div class="crop-picker"><span>YOUR CROP</span><label class="select-wrap"><select id="crop-filter" aria-label="Choose crop"></select><span>⌄</span></label></div></div>
+          <div id="recommendation-content" class="recommendation-content"></div>
+        </section>
+
+        <footer class="footer"><span>HarvestIQ <span class="footer-dot">·</span> Market insights for your next harvest</span><span id="updated-at">Data shown as reported in the source workbook</span></footer>
+      </main>
+    </div>
+    <div id="toast" class="toast" role="status"></div>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
